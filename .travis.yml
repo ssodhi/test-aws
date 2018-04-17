@@ -1,14 +1,11 @@
 sudo: false
-dist: trusty
 
-cache:
-  directories:
-  - "${HOME}/bin"
+branches:
+  only:
+    - master
 
 env:
   global:
-  - PATH="${HOME}/bin
-  - TMPDIR="${TMPDIR:-/tmp}"
   - VERSION="0.11.0"
 
 before_script:
