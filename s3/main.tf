@@ -4,8 +4,8 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "shailendra_test" {
-#  provider = "aws.org"
-  region = "${var.region}"
+  #  provider = "aws.org"
+  region        = "${var.region}"
   bucket        = "${var.bucket}"
   force_destroy = false
   acl           = "private"

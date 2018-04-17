@@ -16,3 +16,6 @@ before_script:
   - terraform version
 script:
   - ./test/check-fmt.sh
+
+notifications:
+  email: false
