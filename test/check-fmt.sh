@@ -5,12 +5,22 @@ if [[ -z "$TRAVIS_PULL_REQUEST_BRANCH" ]]; then
 else
   BRANCH="master"
 fi
+BRANCH="master"
 
 exitcode=0
-for file in $(git diff --name-only $BRANCH | grep .tf\$); do
-  if [[ "$(terraform fmt -write=false "$file" | wc -l)" -gt 0 ]]; then
+#for file in $(git diff --name-only $BRANCH | grep .tf\$); do
+#  if [[ "$(terraform fmt -write=false "$file" | wc -l)" -gt 0 ]]; then
+#    echo "ERROR: $file failed to pass terraform fmt"
+#    exitcode=1
+#  fi
+#done
+
+for file in `find $(pwd) -iname '*.tf'`
+do 
+if [[ "$(terraform fmt -write=false "$file" | wc -l)" -gt 0 ]]; then
     echo "ERROR: $file failed to pass terraform fmt"
     exitcode=1
-  fi
+fi
 done
+
 exit $exitcode
