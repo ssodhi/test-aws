@@ -1,0 +1,21 @@
+sudo: false
+dist: trusty
+
+cache:
+  directories:
+  - "${HOME}/bin"
+
+env:
+  global:
+  - PATH="${HOME}/bin
+  - TMPDIR="${TMPDIR:-/tmp}"
+  - VERSION="0.11.0"
+
+before_script:
+  - curl -fSL "https://releases.hashicorp.com/terraform/${VERSION}/terraform_${VERSION}_linux_amd64.zip" -o terraform.zip
+  - sudo unzip terraform.zip -d /opt/terraform
+  - sudo ln -s /opt/terraform/terraform /usr/bin/terraform
+  - rm -f terraform.zip
+  - terraform version
+script:
+  - ./test/check-fmt.sh
