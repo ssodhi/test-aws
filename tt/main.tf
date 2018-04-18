@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "config" {
-  #  provider      = "aws.dev"
+#  provider      = "aws.dev"
   region        = "${var.region}"
   bucket        = "${var.bucket}"
   force_destroy = false
@@ -9,3 +9,4 @@ resource "aws_s3_bucket" "config" {
     Name = "shailendra-test-bucket"
   }
 }
+
