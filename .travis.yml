@@ -17,10 +17,6 @@ before_install:
 
 script:
   - terraform fmt -check=true -diff=true
-  - if [ $? -ne 3 ]; then
-      echo "ERROR:failed to pass terraform fmt"
-      exit 1
-    fi 
 
 notifications:
   email: false
