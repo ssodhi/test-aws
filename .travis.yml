@@ -15,7 +15,7 @@ before_install:
   - rm -f terraform.zip
   - terraform version
 
-after_install:
+script:
   - terraform fmt -check=true -diff=true
   - if [ $? -ne 3 ]; then
       echo "ERROR:failed to pass terraform fmt"
