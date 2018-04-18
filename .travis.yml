@@ -8,7 +8,7 @@ env:
   global:
   - VERSION="0.11.0"
 
-before_script:
+before_install:
   - curl -fSL "https://releases.hashicorp.com/terraform/${VERSION}/terraform_${VERSION}_linux_amd64.zip" -o terraform.zip
   - sudo unzip terraform.zip -d /opt/terraform
   - sudo ln -s /opt/terraform/terraform /usr/bin/terraform
